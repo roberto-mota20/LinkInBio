@@ -69,46 +69,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 4.5rem clamp(1.25rem, 5vw, 3rem) 2.5rem;
+  justify-content: flex-start;
+  padding: 5rem clamp(1.25rem, 5vw, 3rem) 3rem;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   box-sizing: border-box;
 }
 
-/* Responsive vertical offset: smaller width = larger top spacing (centered on phone) */
-@media (max-width: 900px) {
-  .site-wrapper {
-    padding-top: 10vh;
-  }
-}
-
+/* Mobile: Center content dead in the middle */
 @media (max-width: 768px) {
   .site-wrapper {
-    padding-top: 16vh;
+    justify-content: center;
+    padding: 1.5rem;
   }
-  .site-wrapper:has(.privacy-page-frame) {
-    padding-top: 3.5rem;
-  }
-}
 
-@media (max-width: 480px) {
-  .site-wrapper {
-    padding-top: 25vh;
-    padding-bottom: 2rem;
-  }
+  /* Keep privacy reading page scrolling naturally from the top */
   .site-wrapper:has(.privacy-page-frame) {
+    justify-content: flex-start;
     padding-top: 2.5rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .site-wrapper {
-    padding-top: 27vh;
-  }
-  .site-wrapper:has(.privacy-page-frame) {
-    padding-top: 2rem;
+    padding-bottom: 4.5rem;
   }
 }
 
@@ -286,13 +266,22 @@ body {
 }
 
 /* ==========================================================================
-   CORNER PRIVACY LINK
+   CORNER PRIVACY LINK (Pinned to Bottom-Right Corner)
    ========================================================================== */
 .corner-privacy {
-  margin-top: 3.5rem;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.75rem;
+  z-index: 100;
+  margin: 0;
   display: flex;
-  justify-content: center;
-  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .corner-privacy {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
 }
 
 .privacy-link {
