@@ -24,7 +24,29 @@
       ]
     },
     {
-      "source": "/(.*).(css|js|svg|png|jpg|woff2)",
+      "source": "/v.txt",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(svg|png|jpg|jpeg|woff2|ttf)",
       "headers": [
         {
           "key": "Cache-Control",
