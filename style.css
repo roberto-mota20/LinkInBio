@@ -81,16 +81,20 @@ body {
   position: relative;
 }
 
-/* Privacy reading page */
+/* Subpages (Privacy, 404, etc.) */
 .site-wrapper.privacy-wrapper,
-.site-wrapper:has(.privacy-page-frame) {
+.site-wrapper.subpage-wrapper,
+.site-wrapper:has(.privacy-page-frame),
+.site-wrapper:has(.subpage-frame) {
   justify-content: center;
   padding: 3rem clamp(1.25rem, 5vw, 2.5rem);
 }
 
 @media (max-height: 550px) {
   .site-wrapper.privacy-wrapper,
-  .site-wrapper:has(.privacy-page-frame) {
+  .site-wrapper.subpage-wrapper,
+  .site-wrapper:has(.privacy-page-frame),
+  .site-wrapper:has(.subpage-frame) {
     justify-content: flex-start;
   }
 }
@@ -104,8 +108,9 @@ body {
   margin: 0 auto;
 }
 
-/* Specific frame for Privacy page reading width */
-.privacy-page-frame {
+/* Specific frame for Privacy / 404 subpage reading width */
+.privacy-page-frame,
+.subpage-frame {
   max-width: 480px;
   gap: 1.5rem;
 }
